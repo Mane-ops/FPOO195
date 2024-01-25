@@ -7,3 +7,8 @@
 de 
 varias lineas
 '''
+
+#2 cadenas
+
+print('soy una cadena')
+print("soy otra cadena")
