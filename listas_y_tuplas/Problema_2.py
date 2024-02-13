@@ -1,30 +1,30 @@
 import random
-import collections
 
-nums = []
-for i in range(30):
-    num = random.randrange(10,20)
-    nums.append(num)
-tupla = tuple(nums)
+def lista_random():
+    return [random.randint(10, 20) for _ in range (30)]
 
-x = str(input('Selecciona una accion para realizar: \n a) Contar número repetidos\n b) Eliminar numero repetidos \n c) Remplazar los repetidos con 0\n'))
+lista = lista_random()
 
+def rep(lista):
+    return {num : lista.count(num) for num in set(lista)}
 
-def repe():
-    r = collections.Counter(tupla)
-    print(r)
+def elim(lista):
+    return list(set(lista))
 
-def elim():
-    e = (set(tupla))
-    print(e)
-    
-def rem():
-    for i in set(tupla):
-        while tupla.count(i) > 1:
-            tupla[tupla.index(i)] = 0 
-    return tupla         
+def rem(lista):
+    for num in set(lista):
+        while lista.count(num) > 1:
+            lista[lista.index(num)] = 0
+    return lista
 
-print(tupla)
-repe()
-elim()
-rem(tupla)
+x = str(input('Elija una opcion:\n a) Contar número repetidos\n b) Eliminar numero repetidos\n c) Remplazar los repetidos con 0\n'))
+
+if x == 'a':
+    print(rep(lista))
+elif x == 'b':
+    print(elim(lista))
+elif x == 'c':
+    print(rem(lista))
+
+print(f'La lista original es: {lista}')
+
