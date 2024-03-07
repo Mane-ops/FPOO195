@@ -1,47 +1,40 @@
-class Usuario:
-    usuarios = []
+class Persona:
 
-    def _init_(self, nom, corr, pas):
-        self.__nombre = nom
-        self.__correo = corr
-        self.__password = pas
-        Usuario.usuarios.append(self)
+#Constuctor
 
-    def agregar(self):
-        print("Usuario agregado:")
-        print(f"Nombre: {self.__nombre}")
-        print(f"Correo: {self.__correo}")
-        print(f"Contraseña: {self.__password}")
+    def __init__(self):
+        self.__listaBD = []
 
-    def consultar(self):
-        print("Información del usuario:")
-        print(f"Nombre: {self.__nombre}")
-        print(f"Correo: {self.__correo}")
+    #Metodos del CRUD
 
-    def editar(self, nom, corr, pas):
-        self.__nombre = nom
-        self.__correo = corr
-        self.__password = pas
-        print("Usuario editado.")
+    def Insertar (self, id, nom, edad):
 
-    def eliminar(self):
-        Usuario.usuarios.remove(self)
-        print("Usuario eliminado exitosamente.")
+        self.__listaBD.append(  {   "Id":id, "Nombre":nom, "Edad":edad }    )
 
-    def getNombre(self):
-        return self.__nombre
+    def consultarTodos (self):
 
-    def getCorreo(self):
-        return self.__correo
+        print(self.__listaBD)
 
-    def getPassword(self):
-        return self.__password
+    def buscarUsuario(self,id):
+        for usuario in self.__listaBD:
+            if usuario['Id'] == id:
+                print( usuario)
+            else:
+                print("Usuario no encontrado")
 
-    def setNombre(self, nx):
-        self.__nombre = nx
+    def eliminar(self, id):
+        for usuario in self.__listaBD:
+            if usuario['Id'] == id:
+                self.__listaBD.remove(usuario)
+                print(":: Usuario Eliminado::")
+            
+            self.consultarTodos()
 
-    def setCorreo(self, cx):
-        self.__correo = cx
+    def editar(self, id, nom, edad):
+        for usuario in self.__listaBD:
+            if usuario['Id'] == id:
+                usuario ["Nombre"] = nom
+                usuario['Edad'] = edad
+                print(":: Usuario Editado::")
 
-    def setPassword(self, px):
-        self.__password = px
+            self.consultarTodos()
