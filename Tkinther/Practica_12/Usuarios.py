@@ -28,10 +28,10 @@ class Usuarios:
                 i['Contraseña'] = passw
                 print("Usuario editado")
                 
-    def validarUsuario(self, id, co, passw):
+    def validarUsuario(self, co, passw):
         for i in self.__usuarios:
-            if i['Id'] == id:
-                if ["Correo"] == co and ['Contrasena'] == passw:
-                    return True
+            if i ['Correo'] == co:
+                if i ['Contrasena'] == passw:
+                    print(messagebox.showinfo('Info', 'Acceso permitido'))
                 else:
-                    return False
+                    print(messagebox.showerror('ERROR', 'Revisa tus credenciales'))

@@ -54,14 +54,14 @@ while True:
         seccion3 = Frame(ventana, bg = "#F4E900")
         seccion3.pack(expand=True, fill='both')  
     
-        id = (Entry(seccion1))
-        id.pack()
+        ##id = (Entry(seccion1))
+        #id.pack()
         cor = Entry(seccion1)
         cor.pack()
         cont = Entry(seccion2)  
         cont.grid(column=10, row=2)
         
-        boton = Button(seccion3, text="Validar",bg="#090909", lambda: usuario.validarUsuario(id,cor,cont))
+        boton = Button(seccion3, text="Validar",bg="#090909", command=lambda: usuario.validarUsuario(cor,cont))
         boton.configure(height=2,width=10)
         boton.pack()
         
