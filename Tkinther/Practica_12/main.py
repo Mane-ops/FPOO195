@@ -1,77 +1,58 @@
 import sys
-from Usuarios import *
-from tkinter import *
-from tkinter import messagebox
+from Persona import *
+from Login import *
 
-usuario = Usuarios()
+objectPeople = Persona()
+objectLogin = Login()
 
 while True:
-    print("1. Registrar usuario ")
-    print("2. Consultar solo un usuario ")
-    print("3. Eliminar un usuario ")
-    print("4. Editar un usuario ")
-    print("5. Login")
-    print("6. Salir")
+    print("===== Menu =====") 
+    print("1. Insertar Persona: ")
+    print("2. Consultar todos: ")
+    print("3. Buscar una Persona:")
+    print("4. Eliminar una Persona: ")
+    print("5. Editar una Persona: ")
+    print("6. Login")
+    print("7. Salir")
     opcion = input("Elige una opción: ")
 
     if opcion == "1":
+        print(" == Ingresa los datos del usuario == ")
         id= input("Escribe el Id: ")
-        correo = input("Ingresa el correo: ")
-        contrasena = input("Ingresa una contraseña: ")
+        nom = input("Escribe el Nombre: ")
+        pas = input("Escribe una contraseña: ")
         
-        usuario.Registrar(id,correo,contrasena)
-        print("Usuario registrado")
+        objectPeople.Insertar(id, nom, pas)
+        print(":: Persona Agregada correctamente::")
 
     elif opcion == "2":
-        print("Ingresa el Id de algun usuario")
-        id = input("Id: ")
-        usuario.buscar(id)
+        print(":: Estos son las Personas guardadas ::")
+        objectPeople.consultarTodos ()
 
     elif opcion == "3":
-        print("Ingresa el Id de la persona a eliminar")
-        id= input("Id: ")
-        usuario.eliminar(id)
+        print(":: Introduce Id de la persona ::")
+        id = input("Id: ")
+        objectPeople.buscarUsuario(id)
 
     elif opcion == "4":
-        print("Ingresa el Id del usuario a editar")
-        id = input("Id: ")
-        cor = input("Nombre: ")
-        con = input("Edad: ")
-        usuario.editar(id,cor,con)
-        
+        print(":: Introduce Id de la persona a eliminar ::")
+        id= input("Id: ")
+        objectPeople.eliminar(id)
+
     elif opcion == "5":
-        
-        ventana = Tk()
-        ventana.title("Login")
-        ventana.geometry("700x500")
-        
-        seccion1 = Frame(ventana, bg = "#F4E900")
-        seccion1.pack(expand=True, fill='both')
-    
-        seccion2 = Frame(ventana, bg = "#F4E900")
-        seccion2.pack(expand=True, fill='both')
-        
-        seccion3 = Frame(ventana, bg = "#F4E900")
-        seccion3.pack(expand=True, fill='both')  
-    
-        ##id = (Entry(seccion1))
-        #id.pack()
-        cor = Entry(seccion1)
-        cor.pack()
-        cont = Entry(seccion2)  
-        cont.grid(column=10, row=2)
-        
-        boton = Button(seccion3, text="Validar",bg="#090909", command=lambda: usuario.validarUsuario(cor,cont))
-        boton.configure(height=2,width=10)
-        boton.pack()
-        
-        
+        print(":: Introduce Id de la persona a editar ::")
+        id = input("Id: ")
+        nm = input("Nombre: ")
+        pa = input("Password: ")
+        objectPeople.editar(id,nm,pa)
 
     elif opcion == "6":
-        print("Adios")
+        status = objectLogin.crearLogin(objectPeople)
+    
+    elif opcion == "7":
+        print("¡Hasta luego!")
         sys.exit()
 
     else:
         print("Opción no válida. Inténtalo de nuevo.")
-        
-    
+

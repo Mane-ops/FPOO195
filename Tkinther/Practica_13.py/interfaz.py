@@ -33,7 +33,7 @@ class interfaz:
         self.boton.grid(row=3, column=0, columnspan=2, padx=10, pady=5)
         
         self.boton2 = tk.Button(self.root, text="Comprobar fortaleza", command= lambda: self.password_generador.fortaleza())
-        self.boton.grid(row=3, column=2, columnspan=2, padx=10, pady=5)
+        self.boton2.grid(row=3, column=1, columnspan=3, padx=10, pady=5)
 
         self.contra_label = tk.Label(self.root, text="Tu contraseña es:")
         self.contra_label.grid(row=4, column=0, padx=10, pady=5)

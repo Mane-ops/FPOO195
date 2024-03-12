@@ -26,14 +26,14 @@ class Password:
     
     def fortaleza(self):
         fort = 'media'
-        if self.longitud > 9:
-            fort = 'media alta'
+        if self.longitud > 9 and self.mayus == True and self.especiales == True:
+            fort = 'Muy alta'
         elif self.longitud > 9 and (self.mayus == True or self.especiales == True):
             fort = 'Alta'
-        elif self.longitud > 9 and self.mayus == True and self.especiales == True:
-            fort = 'Muy alta'
+        elif self.longitud > 9:
+            fort = 'media alta'
         
-        print(messagebox.showinfo('Info', fort))
+        return print(messagebox.showinfo('Info', f'Tu contraseña es {fort}'))
             
 
 class interfaz:
@@ -65,11 +65,11 @@ class interfaz:
         self.boton = tk.Button(self.root, text="Generar Contraseña", command=self.password)
         self.boton.grid(row=3, column=0, columnspan=2, padx=10, pady=5)
         
-        self.boton2 = tk.Button(self.root, text="Comprobar fortaleza", command= lambda: self.password_generador.fortaleza)
-        self.boton.grid(row=3, column=0, columnspan=3, padx=12, pady=7)
+        self.boton2 = tk.Button(self.root, text="Comprobar fortaleza", command= lambda: self.password_generador.fortaleza())
+        self.boton2.grid(row=3, column=0, columnspan=3, padx=12, pady=7)
 
         self.contra_label = tk.Label(self.root, text="Tu contraseña es:")
-        self.contra_label.grid(row=4, column=0, padx=10, pady=5)
+        self.contra_label.grid(row=4, column=2, padx=10, pady=5)
 
         self.password_entry = tk.Entry(self.root, width=30)
         self.password_entry.grid(row=4, column=1, padx=10, pady=5)
