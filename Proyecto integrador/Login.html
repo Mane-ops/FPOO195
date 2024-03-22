@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar Sesión en MACRA</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFF8E1; /* Color de fondo similar al de la imagen */
+  }
+
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 2em;
+    color: #333333; /* Color del texto del título */
+  }
+
+  .formulario-login {
+    background-color: #FFC107; /* Color de fondo del formulario */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados para el formulario */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil para darle profundidad */
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para el formulario */
+    margin-top: 20px;
+  }
+
+  .formulario-login form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formulario-login label {
+    font-weight: bold;
+    color: #333333; /* Color del texto de la etiqueta */
+  }
+
+  .formulario-login input {
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px; /* Bordes redondeados para los campos de entrada */
+  }
+
+  .formulario-login button {
+    padding: 15px;
+    background-color: #333333; /* Color de fondo del botón */
+    color: white;
+    border: none;
+    border-radius: 4px; /* Bordes redondeados para el botón */
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+  .formulario-login button:hover {
+    background-color: #555555; /* Oscurecer el botón al pasar el cursor */
+  }
+
+  .seccion-donar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para la sección donar */
+    margin-top: 40px;
+  }
+
+  .caja-donar, .plato-comida {
+    flex: 1;
+    margin: 10px;
+  }
+
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 768px) {
+    .contenedor {
+      flex-direction: column;
+    }
+
+    .seccion-donar {
+      flex-direction: column;
+    }
+
+    .formulario-login {
+      width: 90%;
+    }
+
+    .seccion-donar {
+      align-items: center;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+  <header>
+    <h1>MACRA</h1>
+  </header>
+  
+  <section class="formulario-login">
+    <form id="formularioAcceso" action="#" method="POST">
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" name="correo" required>
+      
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" required>
+      
+      <button type="submit">INICIAR SESIÓN</button>
+    </form>
+  </section>
+  
+  <aside class="seccion-donar">
+    <div class="caja-donar">
+      <img src="donate-box.png" alt="Caja de donación" style="max-width:100%;"> <!-- Sustituye 'donate-box.png' con la ruta de tu imagen -->
+    </div>
+    <div class="plato-comida">
+      <img src="food-platter.png" alt="Plato de comida" style="max-width:100%;"> <!-- Sustituye 'food-platter.png' con la ruta de tu imagen -->
+    </div>
+  </aside>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const formularioAcceso = document.getElementById('formularioAcceso');
+      formularioAcceso.addEventListener('submit', function(evento) {
+        evento.preventDefault();
+        // Aquí manejarías la lógica de inicio de sesión
+        const correo = document.getElementById('correo').value;
+        const contrasena = document.getElementById('contrasena').value;
+        console.log('Iniciar sesión con:', correo, contrasena);
+        // Típicamente aquí enviarías una solicitud a tu servidor
+  
+        // Simulación de inicio de sesión exitoso
+        alert('Inicio de sesión exitoso para ' + correo);
+        // Redirección a la página principal o al dashboard del usuario
+        // window.location.href = 'tu_dashboard.html'; // Descomenta y usa tu URL
+      });
+    });
+  </script>
+  </body>
+  </html>
+  

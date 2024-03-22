@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administrador de Productos - MACRA</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+  }
+
+  .encabezado {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    border-bottom: 2px solid #FFC107;
+  }
+
+  .encabezado h1 {
+    margin: 0;
+    display: inline-block;
+  }
+
+  .icono-cerrar-sesion {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  .tabla-productos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .tabla-productos th {
+    background-color: #FFC107;
+    color: #333;
+    padding: 10px;
+  }
+
+  .tabla-productos td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  .tabla-productos tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .boton {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .boton img {
+    height: 20px; /* Ajustar según el tamaño deseado */
+  }
+
+  .boton-agregar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    position: relative;
+    top: -3px;
+    margin-left: 20px;
+  }
+
+  .busqueda {
+    padding: 20px;
+    text-align: right;
+    background-color: #f3f3f3;
+  }
+
+  .busqueda input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+
+  .busqueda button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #FFC107;
+    border: none;
+    color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .tabla-productos th, .tabla-productos td {
+      padding: 5px;
+    }
+    .boton img {
+      height: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="encabezado">
+  <h1>MACRA</h1>
+  <span>ADMINISTRADOR PRODUCTOS</span>
+  <button class="icono-cerrar-sesion" onclick="cerrarSesion()">
+    <img src="logout-icon.png" alt="Cerrar sesión">
+  </button>
+</div>
+
+<div class="busqueda">
+  <input type="text" placeholder="BUSCA TU PRODUCTO" id="inputBusqueda">
+  <button onclick="buscarProducto()">Buscar</button>
+</div>
+
+<button class="boton-agregar" onclick="agregarProducto()">+</button>
+
+<table class="tabla-productos">
+  <thead>
+    <tr>
+      <th>Id_Producto</th>
+      <th>Nombre</th>
+      <th>Unidad de medida</th>
+      <th>Cantidad</th>
+      <th>Perecedero</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+      <th>Guardar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Los datos de los productos deben ser insertados aquí -->
+  </tbody>
+</table>
+
+<script>
+    // Asignar eventos o realizar llamadas AJAX para las siguientes funciones:
+    
+    function cerrarSesion() {
+      // Implementar la lógica para cerrar sesión
+      console.log('Cerrar sesión');
+      // Redireccionar al inicio de sesión o eliminar tokens de sesión aquí
+    }
+  
+    function buscarProducto() {
+      var input = document.getElementById("inputBusqueda").value;
+      // Implementar la lógica para buscar un producto
+      console.log('Buscar producto:', input);
+      // Realizar llamada AJAX o enviar a servidor para realizar la búsqueda
+    }
+  
+    function agregarProducto() {
+      // Implementar la lógica para agregar un nuevo producto
+      console.log('Agregar producto');
+      // Abrir modal o formulario para agregar nuevo producto
+    }
+  
+    function editarProducto(id) {
+      // Implementar la lógica para editar un producto
+      console.log('Editar producto con id:', id);
+      // Realizar llamada AJAX o enviar a servidor para obtener detalles y editar
+    }
+  
+    function eliminarProducto(id) {
+      // Implementar la lógica para eliminar un producto
+      console.log('Eliminar producto con id:', id);
+      // Realizar llamada AJAX o enviar a servidor para eliminar el producto
+    }
+  
+    function guardarProducto(id) {
+      // Implementar la lógica para guardar un producto editado
+      console.log('Guardar producto con id:', id);
+      // Realizar llamada AJAX o enviar a servidor para guardar los cambios
+    }
+  </script>
+  </body>
+  </html>

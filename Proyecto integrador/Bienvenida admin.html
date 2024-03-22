@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard de MACRA</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFF8E1;
+  }
+
+  .contenedor {
+    text-align: center;
+    padding: 20px;
+  }
+
+  header h1 {
+    color: #333;
+  }
+
+  .boton {
+    background-color: #FFC107;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .boton img {
+    width: 50px; /* Ajusta esto según el tamaño de tus imágenes */
+  }
+
+  .boton-texto {
+    display: block;
+    margin-top: 5px;
+    font-size: 1.2em;
+    color: #333;
+  }
+
+  .boton-cerrar-sesion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .boton-cerrar-sesion img {
+    width: 30px; /* Ajusta esto según el tamaño de tu imagen de cerrar sesión */
+  }
+
+  @media (max-width: 768px) {
+    .boton img {
+      width: 40px; /* Tamaño más pequeño para dispositivos móviles */
+    }
+
+    .boton-texto {
+      font-size: 1em;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+  <header>
+    <h1>MACRA</h1>
+    <h2>Bienvenido!</h2>
+  </header>
+  
+  <button class="boton" onclick="irAProductosDonados()">
+    <img src="icono-productos-donados.png" alt="Productos donados">
+    <span class="boton-texto">Productos donados</span>
+  </button>
+
+  <button class="boton" onclick="irAProductosParaDonar()">
+    <img src="icono-productos-para-donar.png" alt="Productos para donar">
+    <span class="boton-texto">Productos para donar</span>
+  </button>
+
+  <button class="boton" onclick="irAUsuarios()">
+    <img src="icono-usuarios.png" alt="Usuarios">
+    <span class="boton-texto">Usuarios</span>
+  </button>
+
+  <button class="boton-cerrar-sesion" onclick="cerrarSesion()">
+    <img src="icono-cerrar-sesion.png" alt="Cerrar sesión">
+  </button>
+</div>
+
+<script>
+  function irAProductosDonados() {
+    // Implementar la navegación
+    console.log('Ir a productos donados');
+  }
+
+  function irAProductosParaDonar() {
+    // Implementar la navegación
+    console.log('Ir a productos para donar');
+  }
+
+  function irAUsuarios() {
+    // Implementar la navegación
+    console.log('Ir a usuarios');
+  }
+
+  function cerrarSesion() {
+    // Implementar el cierre de sesión
+    console.log('Cerrar sesión');
+  }
+</script>
+</body>
+</html>
