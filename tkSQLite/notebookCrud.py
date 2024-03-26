@@ -2,13 +2,25 @@ from tkinter import *
 from tkinter import ttk
 import tkinter as tk
 from Controlador import *
+from tkinter import messagebox
 
 objControlador = Controlador()
 
 def ejecutaInsert():
     objControlador.insertUsuario(var1.get(),var2.get(),var3.get())
+    
+def busUsuario():
+    usuarioBD = objControlador.buscarUsuario(varBus.get())
+    if usuarioBD == []:
+        messagebox.showwarning("Nada","Usuario no encontrado")
+    else:
+        resultado.delete(1.0, END)
+        for i in usuarioBD:
+            resultado.insert(END, f"ID: {i[0]}\nNombre: {i[1]}\nCorreo: {i[2]}\n")
+        #resultado.insert(END, usuarioBD)
 
-
+#treview
+#grid
 # 1 Crear ventana
 ventana = Tk()
 ventana.title("CRUD de Usuarios")
@@ -48,5 +60,19 @@ Label(pestana1, text="Contraseña: ").pack()
 Entry(pestana1, textvariable=var3).pack()
 
 Button(pestana1, text="Guardar usuario", command=ejecutaInsert).pack()
+
+#6. Pestaña 2: Buscar Usuario
+Label(pestana2, text="Buscar Usuarios", fg="red", font=("Mono",18)).pack()
+
+varBus = tk.StringVar()
+Label(pestana2, text="ID: ").pack()
+Entry(pestana2, textvariable=varBus).pack()
+
+Button(pestana2, text="Buscar Usuario", command=busUsuario).pack()
+
+Label(pestana2, text="Usuario encontrado: ", fg="blue", font=("Mono", 16)).pack()
+resultado = tk.Text(pestana2, height=5, width=52)
+resultado.pack()
+
 
 ventana.mainloop()

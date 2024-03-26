@@ -38,3 +38,24 @@ class Controlador:
             conexion.commit()
             conexion.close()
             messagebox.showinfo("Exito","Eso tilin!!!")
+            
+    def buscarUsuario(self, id):
+        
+        conexion = self.conexion()
+        
+        if(id == ""):
+            messagebox.showwarning("Cuidado","Inputs vacios no sea tibio")
+            conexion.close()
+            
+        else:
+            try:
+                cursor = conexion.cursor()
+                sqlSelect = "select * from tbUsuarios where id="+id
+                cursor.execute(sqlSelect)
+                usuario = cursor.fetchall()
+                conexion.close()
+                return usuario
+                
+            except sqlite3.OperationalError:
+                print("No se encontró al usuario")
+            
