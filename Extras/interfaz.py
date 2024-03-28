@@ -62,3 +62,18 @@ class Interfaz:
 root = tk.Tk()
 app = Interfaz(root)
 root.mainloop()
+
+
+    # ventana_usuarios = tk.Toplevel()
+    # ventana_usuarios.title("Consulta de Usuarios")
+    # frame = ttk.Frame(ventana_usuarios)
+    # frame.pack(padx=10, pady=10)
+    # ttk.Label(frame, text="ID").grid(row=0, column=0, padx=5, pady=5)
+    # ttk.Label(frame, text="Nombre").grid(row=0, column=1, padx=5, pady=5)
+    # ttk.Label(frame, text="Correo").grid(row=0, column=2, padx=5, pady=5)
+    # ttk.Label(frame, text="Contraseña").grid(row=0, column=3, padx=5, pady=5)
+    # for i, usuario in enumerate(usuarios, start=1):
+    #     ttk.Label(frame, text=usuario[0]).grid(row=i, column=0, padx=5, pady=5)
+    #     ttk.Label(frame, text=usuario[1]).grid(row=i, column=1, padx=5, pady=5)
+    #     ttk.Label(frame, text=usuario[2]).grid(row=i, column=2, padx=5, pady=5)
+    #     ttk.Label(frame, text=usuario[3]).grid(row=i, column=3, padx=5, pady=5)

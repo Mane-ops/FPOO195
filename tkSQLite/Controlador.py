@@ -59,3 +59,15 @@ class Controlador:
             except sqlite3.OperationalError:
                 print("No se encontró al usuario")
             
+    def consultarUsuarios(self):
+        conexion = self.conexion()
+        try:
+            cursor = conexion.cursor()
+            sqlSelect = "select * from tbUsuarios"
+            cursor.execute(sqlSelect)
+            usuarios = cursor.fetchall()
+            conexion.close()
+            return usuarios
+        
+        except sqlite3.OperationalError:
+            print("Error al consultar usuarios")

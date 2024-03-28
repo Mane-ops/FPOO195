@@ -19,8 +19,12 @@ def busUsuario():
             resultado.insert(END, f"ID: {i[0]}\nNombre: {i[1]}\nCorreo: {i[2]}\n")
         #resultado.insert(END, usuarioBD)
 
-#treview
-#grid
+def busTodos():      
+    for lista in tree.get_children():
+        tree.delete(lista)
+    for usuario in objControlador.consultarUsuarios():
+        tree.insert("", "end",values=usuario)
+        
 # 1 Crear ventana
 ventana = Tk()
 ventana.title("CRUD de Usuarios")
@@ -73,6 +77,14 @@ Button(pestana2, text="Buscar Usuario", command=busUsuario).pack()
 Label(pestana2, text="Usuario encontrado: ", fg="blue", font=("Mono", 16)).pack()
 resultado = tk.Text(pestana2, height=5, width=52)
 resultado.pack()
+
+#7. Pestaña 3: Consultar usuarios
+tree = ttk.Treeview(pestana3, columns=("ID", "Nombre", "Correo"), show="headings")
+tree.heading("ID", text="ID")
+tree.heading("Nombre", text="Nombre")
+tree.heading("Correo", text="Correo")
+tree.pack(fill="both", expand=True)
+Button(pestana3, text="Consultar Todos los Usuarios", command=busTodos).pack()
 
 
 ventana.mainloop()
